@@ -1,0 +1,68 @@
+#service instance name and configurations
+
+
+spring:
+  
+  application:
+    #name of service
+    name: subscription-service
+    
+    
+eureka:
+
+  instance:
+    #appending random value to run random instances of an application this allows running multiple instances
+    instance-id: ${spring.application.name}:${random.value}
+    
+    
+  client:
+  
+    service-url:
+      
+      defaultZone: http://localhost:5001/eureka
+      
+server:
+
+  port: 0
+  
+  
+logging:
+ 
+  level:
+  
+    httpclient.wire: DEBUG       
+    
+    
+pivotal:       
+  
+    apigatewayservice:
+    
+      name:apigateway-service     
+ 
+    adminservice:
+    
+      name:admin-service
+      
+    authorservice:
+    
+      name:author-service
+      
+    course_&_contentservice:
+    
+      name:course_&_content-service
+      
+    learnerservice:
+    
+      name:learner-service
+      
+    paymentservice:
+    
+      name:payment-service
+      
+    userservice:
+    
+      name:user-service
+      
+    subscriptionservice:
+    
+      name:subscription-service

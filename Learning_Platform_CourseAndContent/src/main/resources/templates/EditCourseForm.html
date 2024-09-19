@@ -1,0 +1,79 @@
+<!--  Html Page for edititng Course Details -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Title Here</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 th:text="${msg}" class="text-center"></h2>
+        <form method="post" action="/course_editingCourse" id="dataform">
+            <div class="form-group">
+                <label for="courseId">Id of course:</label>
+                <input type="number" class="form-control" name="courseId" id="courseId">
+            </div>
+            <div class="form-group">
+                <label for="courseName">Name of course:</label>
+                <input type="text" class="form-control" name="courseName" id="courseName">
+            </div>
+            <div class="form-group">
+                <label for="topics">Topics:</label>
+                <select class="form-control" name="topics" id="topics" multiple="true" required>
+                    <option value="Topic1" name="Topic1" id="Topic1" onclick="func()">Topic 1</option>
+                    <option value="Topic2" name="Topic2" id="Topic2" onclick="func()">Topic 2</option>
+                    <option value="Topic3" name="Topic3" id="Topic3" onclick="func()">Topic 3</option>
+                    <option value="Topic4" name="Topic4" id="Topic4" onclick="func()">Topic 4</option>
+                    <option value="Topic5" name="Topic5" id="Topic5" onclick="func()">Topic 5</option>
+                    <option value="Topic6" name="Topic6" id="Topic6" onclick="func()">Topic 6</option>
+                    <option value="Topic7" name="Topic7" id="Topic7" onclick="func()">Topic 7</option>
+                    <option value="Topic8" name="Topic8" id="Topic8" onclick="func()">Topic 8</option>
+                    <option value="Topic9" name="Topic9" id="Topic9" onclick="func()">Topic 9</option>
+                    <option value="Topic10" name="Topic10" id="Topic10" onclick="func()">Topic10</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" onclick="func()">Add Topic</button>
+            </div>
+            <div id="topicInputs"></div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-success" value="Edit Course">
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and jQuery (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script>
+        function func() {
+            var v1 = document.getElementById("topics").value;
+            var topicInputs = document.getElementById("topicInputs");
+            
+            var input1 = document.createElement("input");
+            input1.setAttribute("type", "text");
+            input1.setAttribute("name", "topics.topicName");
+            input1.setAttribute("required", "true");
+            input1.setAttribute("value", v1);
+            input1.setAttribute("readonly", "true");
+            
+            var input2 = document.createElement("input");
+            input2.setAttribute("type", "number");
+            input2.setAttribute("name", "topics.numberOfPages");
+            input2.setAttribute("min", 2);
+            input2.setAttribute("max", 30);
+            input2.setAttribute("required", "true");
+
+            topicInputs.appendChild(input1);
+            topicInputs.appendChild(input2);
+        }
+    </script>
+</body>
+
+</html>

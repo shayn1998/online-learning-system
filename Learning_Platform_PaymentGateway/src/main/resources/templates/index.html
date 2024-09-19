@@ -1,0 +1,66 @@
+<!-- Will use this page to display a payment form to the customer -->
+
+<!DOCTYPE html>
+
+<html xmlns:th = "http://wwww.thymeleaf.org">
+
+
+<head>
+	<meta charset="	utf-8" />
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	
+	<link rel="stylesheet" href="../css/global.css"/>
+
+	<script scr = "../js/client.js" defer></script>
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="form-card">
+
+			<form id="payment-form" th:action="@{/}" th:object="${checkoutForm}" method="post">
+
+				<p><b>Payment Details</b></p>
+				
+				<h3 th:text="${msg}"></h3> 
+
+				<div class="form-control">
+
+					<input type="text" th:field="*{email}" placeholder="Email address" id = "email" required />
+
+					<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red;"></p>
+
+				</div>
+				
+				<div class="form-control">
+
+					<input type="number" th:field="*{amount}" placeholder="Subscription Amount" id = "amount" required />
+
+					<p th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}" style="color: red;"></p>
+
+				</div>
+
+				<div class="form-control">
+					
+					<input type="text" th:field="*{featureRequest}" placeholder="Feature Request" id = "featureRequest" required />
+					
+					<p th:if="${#fields.hasErrors('featureRequest')}" th:errors="*{featureRequest}" style="color: red;">
+						
+					</p>
+				</div>
+
+				<p><input type="submit" class="btn btn-primary"></p>
+
+			</form>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>

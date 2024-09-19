@@ -1,0 +1,90 @@
+<!-- Html Page to display all Subscriptions to the User-->
+<!-- Form is also there to get the value of the subscription to which he/she wants to subscribe-->
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://wwww.thymeleaf.org">
+	
+	<head>
+		<style>
+			th.c1{
+				
+				margin-left: 40px;
+				
+				margin-right: 40px;
+				
+			}
+			th.c2{
+				
+				margin-left: 40px;
+				
+				margin-right: 40px;
+				
+			}
+			th.c3{
+				
+				margin-left: 40px;
+				
+				margin-right: 40px;
+					
+			}				
+			span.c1{
+				
+				margin-left: 60px;
+				
+				margin-right: 40px;
+				
+			}
+			span.c2{
+				
+				margin-left: 60px;
+				
+				margin-right: 40px;
+				
+			}
+			span.c3{
+				
+				margin-left: 60px;
+				
+				margin-right: 40px;
+					
+			}	
+		</style>
+	</head>
+	
+	<body>
+		
+		<h3 th:text = "${msg}"></h3>
+		
+		<table>	
+			<thead>
+				<th class = "c1">Subscription Id</th>
+				<th class = "c2">Subscription Name</th>
+				<th class = "c3">Subscription Price</th>
+				<th class = "c4">Duration in Months</th>
+			</thead>
+			<tbody>
+				<tr th:if="${subscriptions.empty}">
+					<td colspan="5">No Subscriptions Available</td>					
+				</tr>
+				<tr th:each="subscription : ${subscriptions}">
+					<td><span class = "c1" th:text="${subscription.getSubscriptionId()}">Email</span></td>
+					<td><span class = "c2" th:text="${subscription.getSubscriptionName()}">Name</span></td>
+            		<td><span class = "c2" th:text="${subscription.getSubscriptionPrice()}">Price</span></td>
+            		<td><span class = "c3" th:text="${subscription.getDurationInMonths()}">Duration In Months</span></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<form action = "/subscription_bookSubscription" method = "get">
+			
+			Subscription Id:<input type = "number" name = "subscriptionId" id = "subscriptionId"/>
+			
+			<input type = "submit" value = "Subscribe" id = "subscribe-button"/>
+			
+		</form> 
+		
+		
+	</body>
+
+</html>

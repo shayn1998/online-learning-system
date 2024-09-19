@@ -1,0 +1,42 @@
+{"properties": [
+  {
+    "name": "pivotal.adminservice",
+    "type": "java.lang.String",
+    "description": "A description for 'pivotal.adminservice'"
+  },
+  {
+    "name": "pivotal.authorservice",
+    "type": "java.lang.String",
+    "description": "A description for 'pivotal.authorservice'"
+  },
+  {
+    "name": "pivotal.course_&_contentservice",
+    "type": "java.lang.String",
+    "description": "A description for 'pivotal.course_&_contentservice'"
+  },
+  {
+    "name": "pivotal.learnerservice",
+    "type": "java.lang.String",
+    "description": "A description for 'pivotal.learnerservice'"
+  },
+  {
+    "name": "pivotal.paymentservice",
+    "type": "java.lang.String",
+    "description": "A description for 'pivotal.paymentservice'"
+  },
+  {
+    "name": "pivotal.userservice",
+    "type": "java.lang.String",
+    "description": "A description for 'pivotal.userservice'"
+  },
+  {
+    "name": "pivotal.subscriptionservice",
+    "type": "java.lang.String",
+    "description": "A description for 'pivotal.subscriptionservice'"
+  },
+  {
+    "name": "pivotal.apigatewayservice",
+    "type": "java.lang.String",
+    "description": "A description for 'pivotal.apigatewayservice'"
+  }
+]}

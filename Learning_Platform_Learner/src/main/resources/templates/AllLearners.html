@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Learners List</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="c1">Email</th>
+                    <th class="c2">Name</th>
+                    <th class="c3">Mobile Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${learners.empty}">
+                    <td colspan="3">No Learner Available</td>
+                </tr>
+                <tr th:each="learner : ${learners}">
+                    <td><span class="c1" th:text="${learner.getLearnerEmail()}">Email</span></td>
+                    <td><span class="c2" th:text="${learner.getLearnerName()}">Name</span></td>
+                    <td><span class="c3" th:text="${learner.getLearnerMobile()}">Mobile Number</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS and jQuery (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

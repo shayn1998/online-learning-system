@@ -1,0 +1,58 @@
+<!-- Html Page for displaying All Courses -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Title Here</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h3 th:text="${msg}" class="text-center"></h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Course Id</th>
+                <th>Course Name</th>
+                <th>Number of Chapters</th>
+                <th>Topic Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:if="${courses.empty}">
+                <td colspan="4">No Courses Available</td>
+            </tr>
+            <tr th:each="course : ${courses}">
+                <td th:text="${course.getCourseId()}">Course Id</td>
+                <td th:text="${course.getCourseName()}">Course Name</td>
+                <td th:text="${course.getNumberOfChapters()}">Number of Chapters</td>
+                <td>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Topic Name</th>
+                                <th>Number Of Pages</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="topic : ${course.courseTopics}">
+                                <td th:text="${topic.getTopicName()}">Topic Name</td>
+                                <td th:text="${topic.getNumberOfPages()}">Number Of Pages</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Bootstrap JS and jQuery (required for Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

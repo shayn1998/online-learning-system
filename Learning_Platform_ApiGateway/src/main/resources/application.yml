@@ -1,0 +1,66 @@
+spring:
+  
+  application:
+  
+    name: apigateway-service
+    
+    
+eureka:
+
+  instance:
+  
+    instance-id: ${spring.application.name}:${random.value}
+    
+    
+  client:
+  
+    service-url:
+      
+      defaultZone: http://localhost:5001/eureka
+      
+server:
+
+  port: 0
+  
+  
+logging:
+ 
+  level:
+  
+    httpclient.wire: DEBUG  
+    
+    
+pivotal:
+
+    apigatewayservice:
+    
+      apigateway-service       
+    
+    adminservice:
+    
+      name:admin-service
+      
+    authorservice:
+    
+      name:author-service
+      
+    course_&_contentservice:
+    
+      name:course_&_content-service
+      
+    learnerservice:
+    
+      name:learner-service
+      
+    paymentservice:
+    
+      name:payment-service
+      
+    userservice:
+    
+      name:user-service     
+      
+    subscriptionservice:
+    
+      name:subscription-service
+    

@@ -1,0 +1,42 @@
+<!--Html Page to display all Subscriptions to the Admin -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="c1">Subscription Id</th>
+                    <th class="c2">Subscription Name</th>
+                    <th class="c3">Subscription Price</th>
+                    <th class="c4">Duration in Months</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${subscriptions.empty}">
+                    <td colspan="4">No Subscriptions Available</td>
+                </tr>
+                <tr th:each="subscription : ${subscriptions}">
+                    <td><span class="c1" th:text="${subscription.getSubscriptionId()}">Email</span></td>
+                    <td><span class="c2" th:text="${subscription.getSubscriptionName()}">Name</span></td>
+                    <td><span class="c3" th:text="${subscription.getSubscriptionPrice()}">Price</span></td>
+                    <td><span class="c4" th:text="${subscription.getDurationInMonths()}">Duration In Months</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS and jQuery (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

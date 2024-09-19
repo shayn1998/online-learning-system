@@ -1,0 +1,320 @@
+# Discovery Server ports and their configurations
+
+
+server:
+  port: ${PORT:5001}
+
+  
+eureka:
+
+  instance:
+  
+    hostname: localhost
+    
+  client:
+  
+    fetch-registry: false
+    
+    register-with-eureka: false
+      
+---
+
+spring:
+
+  config:
+  
+    activate:
+    
+      on-profile: eurekaone
+
+server:
+  port: ${PORT:5002}
+
+  
+eureka:
+
+  instance:
+  
+    hostname: eureka-first
+    
+    appname: eone
+    
+  client:
+  
+    fetch-registry: true
+    
+    register-with-eureka: false
+    
+    serviceUrl:
+    
+      defaultZone: http://eureka-second:5003/eureka, http://eureka-third:5004/eureka, http://eureka-fourth:5005/eureka, http://eureka-fifth:5006/eureka, http://eureka-sixth:5007/eureka, http://eureka-seventh:5008/eureka, http://eureka-eight:5009/eureka, http://eureka-nine:5010/eureka
+    
+
+---
+
+spring:
+
+  config:
+  
+    activate:
+    
+      on-profile: eurekatwo
+
+server:
+  port: ${PORT:5003}
+
+  
+eureka:
+
+  instance:
+  
+    hostname: eureka-second
+    
+    appname: etwo
+    
+  client:
+  
+    fetch-registry: true
+    
+    register-with-eureka: false
+    
+    serviceUrl:
+    
+      defaultZone: http://eureka-first:5002/eureka, http://eureka-third:5004/eureka, http://eureka-fourth:5005/eureka, http://eureka-fifth:5006/eureka, http://eureka-sixth:5007/eureka, http://eureka-seventh:5008/eureka,  http://eureka-eight:5009/eureka, http://eureka-nine:5010/eureka
+      
+      
+---
+    
+spring:
+
+  config:
+  
+    activate:
+    
+      on-profile: eurekathree
+
+server:
+  port: ${PORT:5004}
+
+  
+eureka:
+
+  instance:
+  
+    hostname: eureka-third
+    
+    appname: ethree
+    
+  client:
+  
+    fetch-registry: true
+    
+    register-with-eureka: false
+    
+    serviceUrl:
+    
+      defaultZone: http://eureka-first:5002/eureka, http://eureka-second:5003/eureka, http://eureka-fourth:5005/eureka, http://eureka-fifth:5006/eureka, http://eureka-sixth:5007/eureka, http://eureka-seventh:5008/eureka, http://eureka-sixth:5009/eureka, http://eureka-nine:5010/eureka
+    
+
+---
+
+
+spring:
+
+  config:
+  
+    activate:
+    
+      on-profile: eurekafour
+
+server:
+  port: ${PORT:5005}
+
+  
+eureka:
+
+  instance:
+  
+    hostname: eureka-fourth
+    
+    appname: ethree
+    
+  client:
+  
+    fetch-registry: true
+    
+    register-with-eureka: false
+    
+    serviceUrl:
+    
+      defaultZone: http://eureka-first:5002/eureka, http://eureka-second:5003/eureka, http://eureka-third:5004/eureka, http://eureka-fifth:5006/eureka, http://eureka-sixth:5007/eureka, http://eureka-seventh:5008/eureka, http://eureka-eight:5009/eureka, http://eureka-nine:5010/eureka
+    
+
+--- 
+
+
+spring:
+
+  config:
+  
+    activate:
+    
+      on-profile: eurekafive
+
+server:
+  port: ${PORT:5006}
+
+  
+eureka:
+
+  instance:
+  
+    hostname: eureka-fifth
+    
+    appname: efive
+    
+  client:
+  
+    fetch-registry: true
+    
+    register-with-eureka: false
+    
+    serviceUrl:
+    
+      defaultZone: http://eureka-first:5002/eureka, http://eureka-second:5003/eureka, http://eureka-third:5004/eureka, http://eureka-fourth:5005/eureka, http://eureka-sixth:5007/eureka, http://eureka-seventh:5008/eureka, http://eureka-eight:5009/eureka, http://eureka-nine:5010/eureka
+    
+
+---
+
+spring:
+
+  config:
+  
+    activate:
+    
+      on-profile: eurekasix
+
+server:
+  port: ${PORT:5007}
+
+  
+eureka:
+
+  instance:
+  
+    hostname: eureka-sixth
+    
+    appname: esix
+    
+  client:
+  
+    fetch-registry: true
+    
+    register-with-eureka: false
+    
+    serviceUrl:
+    
+      defaultZone: http://eureka-first:5002/eureka, http://eureka-second:5003/eureka, http://eureka-third:5004/eureka, http://eureka-fourth:5005/eureka, http://eureka-fifth:5006/eureka, http://eureka-seventh:5008/eureka, http://eureka-eight:5009/eureka, http://eureka-nine:5010/eureka
+    
+
+---
+
+
+spring:
+
+  config:
+  
+    activate:
+    
+      on-profile: eurekaseven
+
+server:
+  port: ${PORT:5008}
+
+  
+eureka:
+
+  instance:
+  
+    hostname: eureka-seventh
+    
+    appname: eseven
+    
+  client:
+  
+    fetch-registry: true
+    
+    register-with-eureka: false
+    
+    serviceUrl:
+    
+      defaultZone: http://eureka-first:5002/eureka, http://eureka-second:5003/eureka, http://eureka-third:5004/eureka, http://eureka-fourth:5005/eureka, http://eureka-fifth:5006/eureka, http://eureka-sixth:5007/eureka, http://eureka-eight:5009/eureka, http://eureka-nine:5010/eureka
+
+
+---
+
+spring:
+
+  config:
+  
+    activate:
+    
+      on-profile: eurekaeight
+
+server:
+  port: ${PORT:5009}
+
+  
+eureka:
+
+  instance:
+  
+    hostname: eureka-eight
+    
+    appname: eeight
+    
+  client:
+  
+    fetch-registry: true
+    
+    register-with-eureka: false
+    
+    serviceUrl:
+    
+      defaultZone: http://eureka-first:5002/eureka, http://eureka-second:5003/eureka, http://eureka-third:5004/eureka, http://eureka-fourth:5005/eureka, http://eureka-fifth:5006/eureka, http://eureka-sixth:5007/eureka, http://eureka-seventh:5008/eureka, http://eureka-nine:5010/eureka
+    
+---
+
+spring:
+
+  config:
+  
+    activate:
+    
+      on-profile: eurekanine
+
+server:
+  port: ${PORT:5010}
+
+  
+eureka:
+
+  instance:
+  
+    hostname: eureka-nine
+    
+    appname: enine
+    
+  client:
+  
+    fetch-registry: true
+    
+    register-with-eureka: false
+    
+    serviceUrl:
+    
+      defaultZone: http://eureka-first:5002/eureka, http://eureka-second:5003/eureka, http://eureka-third:5004/eureka, http://eureka-fourth:5005/eureka, http://eureka-fifth:5006/eureka, http://eureka-sixth:5007/eureka, http://eureka-seventh:5008/eureka, http://eureka-eight:5009/eureka
+    
+
+    
+
